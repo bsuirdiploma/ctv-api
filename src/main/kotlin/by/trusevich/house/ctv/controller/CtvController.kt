@@ -51,7 +51,7 @@ class CtvController(private val ctvService: CtvService) {
         ApiResponse(code = SC_BAD_REQUEST, message = MALFORMED_REASON, response = ErrorDetails::class)
     )
     @PostMapping(consumes = [APPLICATION_JSON_UTF8_VALUE], produces = [APPLICATION_JSON_UTF8_VALUE])
-    fun createCtv(@Valid @ApiParam(hidden = true) @RequestBody ctv: Ctv) =
+    fun createCtv(@Valid @ApiParam @RequestBody ctv: Ctv) =
         ctvService.create(ctv)
 
     @TokenHeaderImplicit
